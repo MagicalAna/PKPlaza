@@ -15,6 +15,11 @@
 		735A51F8211439CA006368AB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 735A51F7211439CA006368AB /* main.m */; };
 		735A5202211439CA006368AB /* PKPlazaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 735A5201211439CA006368AB /* PKPlazaTests.m */; };
 		735A520D211439CA006368AB /* PKPlazaUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 735A520C211439CA006368AB /* PKPlazaUITests.m */; };
+		736081832116E2D60073799D /* PKPlazaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 736081822116E2D60073799D /* PKPlazaViewController.m */; };
+		736B585B2117E43800C704C6 /* PKPlazaViewControllerABC.m in Sources */ = {isa = PBXBuildFile; fileRef = 736B585A2117E43800C704C6 /* PKPlazaViewControllerABC.m */; };
+		736B585E2117EB6100C704C6 /* PKPlazaViewControllerTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 736B585D2117EB6100C704C6 /* PKPlazaViewControllerTable.m */; };
+		736B58612117F5B800C704C6 /* PKPlazaViewControllerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 736B58602117F5B800C704C6 /* PKPlazaViewControllerCell.m */; };
+		736B58642118245300C704C6 /* PKPlazaViewControllerVote.m in Sources */ = {isa = PBXBuildFile; fileRef = 736B58632118245300C704C6 /* PKPlazaViewControllerVote.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,16 @@
 		735A5208211439CA006368AB /* PKPlazaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PKPlazaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		735A520C211439CA006368AB /* PKPlazaUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PKPlazaUITests.m; sourceTree = "<group>"; };
 		735A520E211439CA006368AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		736081812116E2D60073799D /* PKPlazaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PKPlazaViewController.h; sourceTree = "<group>"; };
+		736081822116E2D60073799D /* PKPlazaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PKPlazaViewController.m; sourceTree = "<group>"; };
+		736B58592117E43800C704C6 /* PKPlazaViewControllerABC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PKPlazaViewControllerABC.h; sourceTree = "<group>"; };
+		736B585A2117E43800C704C6 /* PKPlazaViewControllerABC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PKPlazaViewControllerABC.m; sourceTree = "<group>"; };
+		736B585C2117EB6100C704C6 /* PKPlazaViewControllerTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PKPlazaViewControllerTable.h; sourceTree = "<group>"; };
+		736B585D2117EB6100C704C6 /* PKPlazaViewControllerTable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PKPlazaViewControllerTable.m; sourceTree = "<group>"; };
+		736B585F2117F5B800C704C6 /* PKPlazaViewControllerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PKPlazaViewControllerCell.h; sourceTree = "<group>"; };
+		736B58602117F5B800C704C6 /* PKPlazaViewControllerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PKPlazaViewControllerCell.m; sourceTree = "<group>"; };
+		736B58622118245300C704C6 /* PKPlazaViewControllerVote.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PKPlazaViewControllerVote.h; sourceTree = "<group>"; };
+		736B58632118245300C704C6 /* PKPlazaViewControllerVote.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PKPlazaViewControllerVote.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +120,16 @@
 				735A51E9211439C6006368AB /* AppDelegate.m */,
 				735A51EB211439C6006368AB /* ViewController.h */,
 				735A51EC211439C6006368AB /* ViewController.m */,
+				736081812116E2D60073799D /* PKPlazaViewController.h */,
+				736081822116E2D60073799D /* PKPlazaViewController.m */,
+				736B58592117E43800C704C6 /* PKPlazaViewControllerABC.h */,
+				736B585A2117E43800C704C6 /* PKPlazaViewControllerABC.m */,
+				736B585C2117EB6100C704C6 /* PKPlazaViewControllerTable.h */,
+				736B585D2117EB6100C704C6 /* PKPlazaViewControllerTable.m */,
+				736B585F2117F5B800C704C6 /* PKPlazaViewControllerCell.h */,
+				736B58602117F5B800C704C6 /* PKPlazaViewControllerCell.m */,
+				736B58622118245300C704C6 /* PKPlazaViewControllerVote.h */,
+				736B58632118245300C704C6 /* PKPlazaViewControllerVote.m */,
 				735A51EE211439C6006368AB /* Main.storyboard */,
 				735A51F1211439CA006368AB /* Assets.xcassets */,
 				735A51F3211439CA006368AB /* LaunchScreen.storyboard */,
@@ -262,8 +287,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				736B585B2117E43800C704C6 /* PKPlazaViewControllerABC.m in Sources */,
+				736081832116E2D60073799D /* PKPlazaViewController.m in Sources */,
 				735A51ED211439C6006368AB /* ViewController.m in Sources */,
 				735A51F8211439CA006368AB /* main.m in Sources */,
+				736B58612117F5B800C704C6 /* PKPlazaViewControllerCell.m in Sources */,
+				736B585E2117EB6100C704C6 /* PKPlazaViewControllerTable.m in Sources */,
+				736B58642118245300C704C6 /* PKPlazaViewControllerVote.m in Sources */,
 				735A51EA211439C6006368AB /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

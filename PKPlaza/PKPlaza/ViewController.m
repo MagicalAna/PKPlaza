@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "PKPlazaViewController.h"
 
 @interface ViewController ()
 
@@ -16,7 +17,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+    [button setTitle:@"GO" forState:UIControlStateNormal];
+    button.backgroundColor = [UIColor blueColor];
+    [button addTarget:self action:@selector(Click:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+}
+
+- (void)Click:(id)sender {
+    [self.navigationController pushViewController:PKPlazaViewController.new animated:NO];
 }
 
 
