@@ -44,15 +44,16 @@
     _viewControllerCell2.view.frame = (CGRect){{0, 17 + size1.height}, size2};
     [self.view addSubview:_viewControllerCell2.view];
     //self.view
-    CGSize size = self.view.bounds.size;
-    size.height = _viewControllerCell2.view.frame.origin.y + _viewControllerCell2.view.frame.size.height;
+    CGRect rect = self.view.frame;
+    rect.size.height = _viewControllerCell2.view.frame.origin.y + _viewControllerCell2.view.frame.size.height;
+    self.view.frame = rect;
 }
 
 - (void)setData {
-    _dictionary1 = @{@"name":@"原作者", @"name_color":[UIColor grayColor], @"content":@"Old Ana has a big house\nE-I-E-I-O"};
-    _dictionary2 = @{@"name":@"PK作者", @"name_color":[UIColor grayColor], @"content":@"Old Ana has a big house\nE-I-E-I-O\nOld Ana has a big house\nE-I-E-I-O", @"reason":@"PK理由：happy"};
-    _name = @"Ana";
-    _type = @"助记";
+    _dictionary1 = [_dictionary objectForKey:@"dictionary1"];
+    _dictionary2 = [_dictionary objectForKey:@"dictionary2"];
+    _name = [_dictionary objectForKey:@"name"];
+    _type = [_dictionary objectForKey:@"type"];
 }
 
 @end

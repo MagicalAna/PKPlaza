@@ -29,7 +29,7 @@
     UIBarButtonItem *backBarButton = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(TapBack:)];
     self.navigationItem.leftBarButtonItem = backBarButton;
     //设置segmentControl
-    NSArray *array = @[@"例句", @"助记"];
+    NSArray *array = @[[[NSString alloc] initWithFormat:@"例句 %ld条", [_array[0] count]], [[NSString alloc] initWithFormat:@"助记 %ld条", [_array[1] count]]];
     UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:array];
     _segmentedControl = segmentedControl;
     _segmentedControl.frame = CGRectMake(0, getRectNavAndStatusHight, self.view.bounds.size.width, 50);
@@ -95,7 +95,8 @@
     } else {
         PKPlazaViewControllerTable *tableViewController = [[PKPlazaViewControllerTable alloc] init];
         tableViewController.index = index;
-        tableViewController.ABC = _ABC;
+        [tableViewController setABC:_ABC];
+        [tableViewController setArray:_array[index]];
         [_arrayOfPages addObject:tableViewController];
         return tableViewController;
     }

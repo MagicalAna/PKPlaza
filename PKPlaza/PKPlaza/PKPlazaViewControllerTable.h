@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PKPlazaViewControllerTable : UIViewController
 
 @property (nonatomic, assign) NSInteger index;
+@property (nonatomic, strong) NSArray *array;
 @property (nonatomic, assign) NSInteger ABC;
 
 @end

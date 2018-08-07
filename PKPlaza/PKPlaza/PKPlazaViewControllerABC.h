@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PKPlazaViewControllerABC : UIViewController
 
+@property (nonatomic, strong) NSArray *array;
 @property (nonatomic, assign) NSInteger ABC;
 
 @end

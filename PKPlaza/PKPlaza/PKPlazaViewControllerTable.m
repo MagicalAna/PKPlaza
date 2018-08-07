@@ -15,7 +15,6 @@
 @interface PKPlazaViewControllerTable () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, weak) UITableView *tableView;
-@property (nonatomic, strong) NSDictionary *dictionary;
 
 @end
 
@@ -23,7 +22,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setData];
     CGRect rect = self.view.bounds;
     rect.size.height = [[UIScreen mainScreen] bounds].size.height -getRectNavAndStatusHight - 50;
     self.view.bounds = rect;
@@ -37,6 +35,7 @@
         _tableView.pagingEnabled = YES;
     }
     [self.view addSubview:_tableView];
+    _tableView.allowsSelection = NO;
     //设置颜色
     [self setTheme];
 }
@@ -44,7 +43,7 @@
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return [_array count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -52,7 +51,7 @@
         return _tableView.frame.size.height;
     } else {
         PKPlazaViewControllerCell *viewControllerCell = [[PKPlazaViewControllerCell alloc] init];
-        [viewControllerCell setDictionary:_dictionary];
+        [viewControllerCell setDictionary:_array[indexPath.row]];
         return viewControllerCell.view.frame.size.height;
     }
 }
@@ -60,23 +59,24 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (_ABC == 0) {
         PKPlazaViewControllerVote *viewControllerVote = [[PKPlazaViewControllerVote alloc] init];
-        UITableViewCell *tableViewCell = [[UITableViewCell alloc] initWithFrame:viewControllerVote.view.bounds];
-        [tableViewCell addSubview:viewControllerVote.view];
+        [viewControllerVote setDictionary:_array[indexPath.row]];
+        UIView *view = [[UIView alloc] initWithFrame:viewControllerVote.view.frame];
+        [view addSubview:viewControllerVote.view];
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(TapVote:)];
+        tapGestureRecognizer.view.frame = viewControllerVote.view.frame;
+        [view addGestureRecognizer:tapGestureRecognizer];
+        UITableViewCell *tableViewCell = [[UITableViewCell alloc] init];
+        [tableViewCell addSubview:view];
         return tableViewCell;
     } else {
         PKPlazaViewControllerCell *viewControllerCell = [[PKPlazaViewControllerCell alloc] init];
-        [viewControllerCell setDictionary:_dictionary];
+        [viewControllerCell setDictionary:_array[indexPath.row]];
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(TapCell:)];
+        [viewControllerCell.view addGestureRecognizer:tapGestureRecognizer];
         UITableViewCell *tableViewCell = [[UITableViewCell alloc] initWithFrame:viewControllerCell.view.bounds];
         [tableViewCell addSubview:viewControllerCell.view];
         return tableViewCell;
     }
-}
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-}
-
-- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath{
-    
 }
 
 //设置颜色
@@ -84,8 +84,13 @@
     
 }
 
-- (void) setData {
-    _dictionary = @{@"name":@"Ana", @"name_color":[UIColor redColor], @"type":@"Magic", @"content":@"Old Ana has a big house\nE-I-E-I-O", @"reason":@"NO WHY", @"date":@"now"};
+//点击事件
+- (void)TapVote:(id)sender {
+    NSLog(@"点击Vote");
+}
+
+- (void)TapCell:(id)sender {
+    NSLog(@"点击Cell");
 }
 
 @end

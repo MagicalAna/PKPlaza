@@ -37,6 +37,7 @@
     _labelWordName = [[UILabel alloc] initWithFrame:(CGRect){{10, 15}, sizeLabelWordName}];
     _labelWordName.text = _name;
     _labelWordName.textColor = _nameColor;
+    [self.view addSubview:_labelWordName];
     //result
     
     //type
@@ -46,6 +47,7 @@
     } else {
         _labelType = [[UILabel alloc] initWithFrame:CGRectMake(10, _labelWordName.frame.origin.y + _labelWordName.frame.size.height, 0, 0)];
     }
+    [self.view addSubview:_labelType];
     //content
     CGSize sizePKContent = CGSizeMake(self.view.frame.size.width - 20, MAXFLOAT);
     CGRect rectPKContent = [_content boundingRectWithSize:sizePKContent options:NSStringDrawingUsesLineFragmentOrigin attributes:attrs context:nil];
@@ -53,6 +55,7 @@
     _labelContent = [[UILabel alloc] initWithFrame:CGRectMake(10, _labelType.frame.origin.y + _labelType.frame.size.height + 10, sizePKContent.width, heightPKContent)];
     _labelContent.text = _content;
     _labelContent.numberOfLines = 0;
+    [self.view addSubview:_labelContent];
     //reason
     if(_reason) {
         NSString *stringPKReason = [NSString stringWithFormat:@"PK理由：%@", _reason];
@@ -65,6 +68,7 @@
     } else {
         _labelReason = [[UILabel alloc] initWithFrame:CGRectMake(10, _labelContent.frame.origin.y + _labelContent.frame.size.height, 0, 0)];
     }
+    [self.view addSubview:_labelReason];
     //date
     if (_date) {
         _labelDate = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2 + 1, _labelReason.frame.origin.y + _labelReason.frame.size.height + 10, self.view.frame.size.width / 2, 17)];
@@ -72,15 +76,11 @@
     } else {
         _labelDate = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2 + 1, _labelReason.frame.origin.y + _labelReason.frame.size.height, 0, 0)];
     }
+    [self.view addSubview:_labelDate];
     //设置view长度
     CGRect rect = self.view.frame;
     rect.size.height = _labelDate.frame.origin.y + _labelDate.frame.size.height + 10;
     self.view.frame = rect;
-    [self.view addSubview:_labelWordName];
-    [self.view addSubview:_labelType];
-    [self.view addSubview:_labelContent];
-    [self.view addSubview:_labelReason];
-    [self.view addSubview:_labelDate];
 }
 
 - (void)setData {
