@@ -35,13 +35,13 @@
     _viewControllerCell1 = [[PKPlazaViewControllerCell alloc] init];
     [_viewControllerCell1 setDictionary:_dictionary1];
     CGSize size1 = _viewControllerCell1.view.bounds.size;
-    _viewControllerCell1.view.frame = (CGRect){{0, 17}, size1};
+    _viewControllerCell1.view.frame = (CGRect){{0, 25}, size1};
     [self.view addSubview:_viewControllerCell1.view];
     //viewControllerCell2
     _viewControllerCell2 = [[PKPlazaViewControllerCell alloc] init];
     [_viewControllerCell2 setDictionary:_dictionary2];
     CGSize size2 = _viewControllerCell2.view.bounds.size;
-    _viewControllerCell2.view.frame = (CGRect){{0, 17 + size1.height}, size2};
+    _viewControllerCell2.view.frame = (CGRect){{0, 25 + size1.height}, size2};
     [self.view addSubview:_viewControllerCell2.view];
     //self.view
     CGRect rect = self.view.frame;

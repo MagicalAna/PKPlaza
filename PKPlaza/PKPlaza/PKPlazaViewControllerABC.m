@@ -26,8 +26,8 @@
     [super viewDidLoad];
     _arrayOfPages = [[NSMutableArray alloc] init];
     //返回按钮
-    UIBarButtonItem *backBarButton = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(TapBack:)];
-    self.navigationItem.leftBarButtonItem = backBarButton;
+//    UIBarButtonItem *backBarButton = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(TapBack:)];
+//    self.navigationItem.leftBarButtonItem = backBarButton;
     //设置segmentControl
     NSArray *array = @[[[NSString alloc] initWithFormat:@"例句 %ld条", [_array[0] count]], [[NSString alloc] initWithFormat:@"助记 %ld条", [_array[1] count]]];
     UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:array];
@@ -61,7 +61,7 @@
 
 //backBarButton返回事件
 - (void)TapBack:(id)sender {
-    [[self.navigationController.navigationBar viewWithTag:10000] removeFromSuperview];
+//    [[self.navigationController.navigationBar viewWithTag:10000] removeFromSuperview];
     [self.navigationController popToRootViewControllerAnimated:NO];
 }
 

@@ -16,6 +16,7 @@
 @property (nonatomic, strong) PKPlazaViewControllerABC *viewControllerB;
 @property (nonatomic, strong) PKPlazaViewControllerABC *viewControllerC;
 @property (nonatomic, strong) NSArray *array;
+@property (nonatomic, weak  ) UIView *contentView;
 
 @end
 
@@ -43,24 +44,41 @@
     [_segmentedControl addTarget:self action:@selector(TapSegmentedControl:) forControlEvents:UIControlEventValueChanged];
     _segmentedControl.selectedSegmentIndex = 0;
     [self.navigationController.navigationBar addSubview:_segmentedControl];
+//    [self.navigationItem.titleView addSubview:_segmentedControl];
     //假装set颜色
     [self setTheme];
     //默认push到_viewControllerA
-    [self.navigationController pushViewController:_viewControllerA animated:NO];
+
+    _segmentedControl.selectedSegmentIndex = 0;
+    [self TapSegmentedControl:_segmentedControl];
+    //[self.navigationController pushViewController:_viewControllerA animated:NO];
 }
+
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    // set content view frame;
+}
+
+
 //_segmentedControl绑定的事件
 - (void)TapSegmentedControl:(UISegmentedControl *)sender {
     [self.navigationController popViewControllerAnimated:NO];
     switch (sender.selectedSegmentIndex) {
         case 0:
-            [self.navigationController pushViewController:_viewControllerA animated:NO];
+            self.contentView = _viewControllerA.view;
+//            [self.navigationController pushViewController:_viewControllerA animated:NO];
             break;
         case 1:
-            [self.navigationController pushViewController:_viewControllerB animated:NO];
+            self.contentView = _viewControllerB.view;
+//            [self.navigationController pushViewController:_viewControllerB animated:NO];
             break;
         case 2:
-            [self.navigationController pushViewController:_viewControllerC animated:NO];
+            self.contentView = _viewControllerC.view;
+//            [self.navigationController pushViewController:_viewControllerC animated:NO];
+            break;
     }
+    [self.view addSubview:self.contentView];
 }
 
 //假装set颜色
